@@ -4,34 +4,34 @@ $ErrorActionPreference = "SilentlyContinue"
 Set-ExecutionPolicy remotesigned -Force $ErrorActionPreference
 Clear-Host
 Write-Host "*******************************************************************************" -foregroundcolor "Green"
-Write-Host "File Name	 	: Radia_Server_Disk_Space_Report.ps1"              		-foregroundcolor "Green"                                                                                         
-Write-Host "Purpose 	 	: Radia_Server_Disk_Space_Report will send an email" 		-foregroundcolor "Green"                        
-Write-Host "Version		 	: 12.21.17"           								-foregroundcolor "Green"
-Write-Host "Date		 	: 12/21/2017"           							-foregroundcolor "Green"
-Write-Host "Author	 	     : Brandon Stevens"    			     		    -foregroundcolor "Green" 
-Write-Host "Purpose		 	: Radia Server Disk Space Report"			    		-foregroundcolor "Green"  
-Write-Host "Requires	 	: PowerShell V4 or Higher"           				-foregroundcolor "Green"          
+Write-Host "File Name	 	: Radia_Server_Disk_Space_Report.ps1"              	     -foregroundcolor "Green"                                                                                         
+Write-Host "Purpose 	 	: Radia_Server_Disk_Space_Report will send an email" 	     -foregroundcolor "Green"                        
+Write-Host "Version		: 12.21.17"           				             -foregroundcolor "Green"
+Write-Host "Date		: 12/21/2017"           				     -foregroundcolor "Green"
+Write-Host "Author	 	: Brandon Stevens"    			     		     -foregroundcolor "Green" 
+Write-Host "Purpose		: Radia Server Disk Space Report"			     -foregroundcolor "Green"  
+Write-Host "Requires	 	: PowerShell V4 or Higher"           			     -foregroundcolor "Green"          
 Write-Host "*******************************************************************************" -foregroundcolor "Green"
-#****************************** script Path *****************************************************************************
+#****************************** script Path ****************************************************************************
 $OutputPath = split-path -parent $MyInvocation.MyCommand.Definition
 #$OutputPath = "C:\IIS\DISKSPACE"
-#****************************** Info *****************************************************************
-$Projectname = "Radia Server Disk Space Report"                              #Project Name
+#****************************** Info ***********************************************************************************
+$Projectname = "Radia Server Disk Space Report"                              	#Project Name
 $Title = "Radia Server Disk Space Report"                               	#DailyCheck Report Title
-#***************************** SMTP  change the Value to Yes and add SMTP Server to send email report *******************
+#********************* SMTP  change the Value to Yes and add SMTP Server to send email report **************************
 $TriggerMail = "Yes"
-# write-host "Email is set to  " $TriggerMail 				               #If Yes then enabled else disabled
+# write-host "Email is set to  " $TriggerMail 				        #If Yes then enabled else disabled
 $smtpserver = "TYPE YOUR SMTP OUTGOING SERVER HERE"                    		#SMTP Server Name
-$fromaddress = "TYPE YOUR E-MAIL ADDRESS HERE"            			          #From Address
-$toaddress = "TYPE THE E-MAIL ADDRESS YOUR SENDING THE REPORT TO"       		#To Address
-$ccaddress = ""		        				                              #Cc Address
-$bccaddress = ""       			                    					#Bcc Address
+$fromaddress = "TYPE YOUR E-MAIL ADDRESS HERE"            			#From Address
+$toaddress = "TYPE THE E-MAIL ADDRESS YOUR SENDING THE REPORT TO"      		#To Address
+$ccaddress = ""		        				                #Cc Address
+$bccaddress = ""       			                    			#Bcc Address
 #***************************** Developer Information ********************************************************************
-$CompanyName = "TYPE IN YOUR COMPANY NAME"							#Company Name
-$DeveloperName = "TYPE IN YOUR NAME HERE"							#Developer Name
-$DeveloperEmailID = "YOUR E-MAIL ADDRESS GOES HERE"					#Developer Email ID
+$CompanyName = "TYPE IN YOUR COMPANY NAME"					#Company Name
+$DeveloperName = "TYPE IN YOUR NAME HERE"					#Developer Name
+$DeveloperEmailID = "YOUR E-MAIL ADDRESS GOES HERE"				#Developer Email ID
 #***************************** Warning Parameters - CSV desired  ********************************************************
-$CheckDiskSpaceRpt = "Yes"                                    		  #If Yes then Check Servers availablity
+$CheckDiskSpaceRpt = "Yes"                                    		#If Yes then Check Servers availablity
 $GenerateCSVRpt = "NO"                                                  #"YES" to create a csv and html report
 write-host "Create CSV report is set to  " $generateCSVRpt              #If Yes then Generate CSV Rpt
 $PercentageWarning = "20"                                               #Percentage Warning
@@ -374,7 +374,7 @@ Function writeHtmlHeader
 	</b> </td> </tr>
 	</table>
 "@
-    Add-Content $Report $RptHeaderSME1
+  Add-Content $Report $RptHeaderSME1
 }
 
 # Run Main Report
