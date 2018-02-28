@@ -1,4 +1,30 @@
-Function Get-RadiaServerDiskSpaceReport{
+<#
+.SYNOPSIS
+  Name: Get-RadiaServerDiskSpaceReport.ps1
+  The purpose of this script is to export a disk space report for your Radia Tier 1 and Tier 2 servers?
+  
+.DESCRIPTION
+  Please see the Get-RadiaServerDiskSpaceReport.ps1 script to view the syntax.
+
+.PARAMETER InitialDirectory
+  C:\IIS\DISKSPACE
+  
+.PARAMETER Add
+  No Parameters
+
+.NOTES
+    Updated: 		2018-02-28
+    Release Date: 	2017-12-21
+    Author: 		Brandon Stevens
+    Current Version: 	02.28.18
+
+.EXAMPLE
+  Run the Get-RadiaServerDiskSpaceReport.ps1 script to create the C:\IIS\DISKSPACE\Radia_Servers_Disk_Space_Reports.html" file:
+  Get-RadiaServerDiskSpaceReport							    -foregroundcolor "Red"
+#>
+
+Function Get-RadiaServerDiskSpaceReport {
+
 #************************************************************************************************************************
 $ErrorActionPreference = "SilentlyContinue"
 Set-ExecutionPolicy remotesigned -Force $ErrorActionPreference
@@ -31,11 +57,11 @@ $CompanyName = "TYPE IN YOUR COMPANY NAME"					#Company Name
 $DeveloperName = "TYPE IN YOUR NAME HERE"					#Developer Name
 $DeveloperEmailID = "YOUR E-MAIL ADDRESS GOES HERE"				#Developer Email ID
 #***************************** Warning Parameters - CSV desired  ********************************************************
-$CheckDiskSpaceRpt = "Yes"                                    		#If Yes then Check Servers availablity
-$GenerateCSVRpt = "NO"                                                  #"YES" to create a csv and html report
-write-host "Create CSV report is set to  " $generateCSVRpt              #If Yes then Generate CSV Rpt
-$PercentageWarning = "20"                                               #Percentage Warning
-$PercentageCritical = "15"                                              #Percentage Critical
+$CheckDiskSpaceRpt = "Yes"                                    			#If Yes then Check Servers availablity
+$GenerateCSVRpt = "NO"                                                  	#"YES" to create a csv and html report
+write-host "Create CSV report is set to  " $generateCSVRpt              	#If Yes then Generate CSV Rpt
+$PercentageWarning = "20"                                               	#Percentage Warning
+$PercentageCritical = "15"                                              	#Percentage Critical
 #************************************************************************************************************************
 # C:\IIS\DISKSPACE\
 #************************************************************************************************************************
