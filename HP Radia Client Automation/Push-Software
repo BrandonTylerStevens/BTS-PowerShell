@@ -1,33 +1,66 @@
-function Push-Software{
+<#
+.SYNOPSIS
+  Name: Push-Software.ps1
+  Forces a software connect of machine passed in parameters
+  
+.DESCRIPTION
+  If you are not familiar with HPCA, I'd advise not to use this function as it will not pertain to you.
+  Please change your HPCA directories in the script as needed.
+  
+.PARAMETER InitialDirectory
+  Place Push-Software.ps1 in your functions library to preload.
+  
+.PARAMETER Add
+  $ComputerName = Hostname of target computer.
+  $CoreServer = Flag to connect to Server. If not specified the machine will connect to local server "SERVERHOSTNAME".
+  $Kill = Kills HPCA radpinit in case computer is not responding.
+  $RestartServices = Restart HPCA services in case computer is not responding.
+  $l = Open the software log.
+  
+.NOTES
+    Updated: 		    2018-02-28
+    Release Date: 	    2017-12-21
+    Author: 		    Brandon Stevens
+    Current Version: 	    02.28.18
+
+.EXAMPLES
+  Push-Software Hostname
+  
+  Push-Software Hostname1,Hostname2,Hostname3 -CoreServer
+  
+  Get-Content Hostnames.txt | ForEach-Object {Push-Software $_}
+#>
+
+Function Push-Software {
     param
     (
         [Parameter(Mandatory=$true,ValueFromPipeline=$true)]
         [String[]]$ComputerName,
-        [switch]$restartServices, #Restart HPCA services in case computer is not responding
-        [switch]$kill, #kill HPCA radpinit  in case computer is not responding
-	    [switch]$phx, #Flag to force connection to 
-        [switch]$l #Open the log
+        [switch]$RestartServices,
+        [switch]$Kill,
+	[switch]$CoreServer,
+        [switch]$l
     )
 
-    Foreach($cn in $ComputerName)
+    Foreach($ComputerName in $ComputerNames)
     {
-        write-debug $cn
+        write-debug $ComputerName
         if($restartServices){
-		    Get-Service -DisplayName hpca* -ComputerName $cn |Restart-Service
-	    }
+		Get-Service -DisplayName hpca* -ComputerName $ComputerName | Restart-Service
+	    	}
 	    if($kill){
-            start-process taskkill.exe -ArgumentList "/s $cn  /fi `"imagename eq radconct*`" /f" -wait -NoNewWindow
-		    start-process taskkill.exe -ArgumentList "/s $cn  /fi `"imagename eq nvdkit*`" /f" -wait -NoNewWindow
-        }
+            	start-process taskkill.exe -ArgumentList "/s $ComputerName  /fi `"imagename eq radconct*`" /f" -wait -NoNewWindow
+		start-process taskkill.exe -ArgumentList "/s $ComputerName  /fi `"imagename eq nvdkit*`" /f" -wait -NoNewWindow
+        	}
 
-	    if($phx){
-		    start-process 'C:\Program Files (x86)\Hewlett-Packard\HPCA\Agent\radntfyc.exe' -ArgumentList "$cn radskman ip=SERVERHOSTNAME,port=3464,cat=prompt,ulogon=n,hreboot=n,dname=Software,log=connect_Software.log,rtimeout=60"
-		    }
+	    if($CoreServer){
+		start-process 'C:\Program Files (x86)\Hewlett-Packard\HPCA\Agent\radntfyc.exe' -ArgumentList "$ComputerName radskman ip=SERVERHOSTNAME,port=3464,cat=prompt,ulogon=n,hreboot=n,dname=Software,log=connect_Software.log,rtimeout=60"
+		}
 	    else{
-            start-process 'C:\Program Files (x86)\Hewlett-Packard\HPCA\Agent\radntfyc.exe' -ArgumentList "$cn radskman cat=prompt,ulogon=n,hreboot=n,dname=Software,log=connect_Software.log,rtimeout=60"		    
-            }
+            start-process 'C:\Program Files (x86)\Hewlett-Packard\HPCA\Agent\radntfyc.exe' -ArgumentList "$ComputerName radskman cat=prompt,ulogon=n,hreboot=n,dname=Software,log=connect_Software.log,rtimeout=60"		    
+            	}
         if($l){
-            Invoke-Item "\\$cn\c$\Program Files (x86)\Hewlett-Packard\HPCA\Agent\Log\connect_Software.log"
-        }
+            Invoke-Item "\\$ComputerName\c$\Program Files (x86)\Hewlett-Packard\HPCA\Agent\Log\connect_Software.log"
+        	}
     }
 }
