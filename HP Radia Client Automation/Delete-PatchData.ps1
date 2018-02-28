@@ -1,9 +1,34 @@
-﻿#========================================================================
-#Delete patch and data folders in HPCA and force a patch connect
-#$ComputerName = hostname of target computer
-#Usage: Delete-PatchData.ps1 <hostnames> ex: Delete-PatchData Hostname or Delete-PatchData Hostname1,Hostname2,Hostname3
-#Also recommended example: Get-Content hostnames.txt | ForEach-Object { Delete-PatchData.ps1 $_}
-#========================================================================
+<#
+.SYNOPSIS
+  Name: Delete-PatchData.ps1
+  Delete patch and data folders in HPCA and force a patch connect.
+  
+.DESCRIPTION
+  If you are not familiar with HPCA, I'd advise not to use this function as it will not pertain to you.
+  Please change your HPCA directories in the script as needed.
+  
+.PARAMETER InitialDirectory
+  Place Delete-PatchData.ps1 in your functions library to preload.
+  
+.PARAMETER Add
+  $ComputerName = Hostname of target computer.
+
+.NOTES
+    Updated: 		2018-02-28
+    Release Date: 	2017-12-21
+    Author: 		Brandon Stevens
+    Current Version: 	02.28.18
+
+.EXAMPLES
+  Delete-PatchData <hostnames>
+  
+  Delete-PatchData Hostname
+  
+  Delete-PatchData Hostname1,Hostname2,Hostname3
+  
+  Get-Content Hostnames.txt | ForEach-Object {Delete-PatchData $_}
+#>
+
 function Delete-PatchData{
     param
     (
