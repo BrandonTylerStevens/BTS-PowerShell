@@ -1,24 +1,50 @@
-function Open-ConnectPatchLog{
+<#
+.SYNOPSIS
+  Name: Open-ConnectPatchLog.ps1
+  Opens the Connect_Patch.log file of a host.
+  
+.DESCRIPTION
+  If you are not familiar with HPCA, I'd advise not to use this function as it will not pertain to you.
+  Please change your HPCA directories in the script as needed.
+  
+.PARAMETER InitialDirectory
+  Place Open-ConnectPatchLog.ps1 in your functions library to preload.
+  
+.PARAMETER Add
+  $ComputerName = Hostname of target computer.
+  $w = Opens website in the host's Radia directory.
+
+.NOTES
+    Updated: 		    2018-02-28
+    Release Date: 	    2017-12-21
+    Author: 		    Brandon Stevens
+    Current Version: 	02.28.18
+
+.EXAMPLES  
+  Open-ConnectPatchLog Hostname
+#>
+
+Function Open-ConnectPatchLog {
     param
     (
         [Parameter(Mandatory=$true,ValueFromPipeline=$true)]
-        [String]$cn,
+        [String]$ComputerName,
         [switch]$w #Flag to open patch stats site
   
     )
 
-    if(Test-Connection $cn -count 1 -Quiet)
+    if(Test-Connection $ComputerName -count 1 -Quiet)
     { 
-        Invoke-Item "\\$cn\c$\Program Files\Hewlett-Packard\HPCA\Agent\Log\connect_Patch.log"
-        Invoke-Item "\\$cn\c$\Program Files\Hewlett-Packard\HPCA\Agent\Log\connect_Patch.log" -ErrorAction SilentlyContinue
+        Invoke-Item "\\$ComputerName\c$\Program Files\Hewlett-Packard\HPCA\Agent\Log\connect_Patch.log"
+        Invoke-Item "\\$ComputerName\c$\Program Files\Hewlett-Packard\HPCA\Agent\Log\connect_Patch.log" -ErrorAction SilentlyContinue
 
         if($w){
-            Invoke-Item "\\$cn\c$\Program Files (x86)\Hewlett-Packard\HPCA\Agent\Lib\patch_stats.html"
-            Invoke-Item "\\$cn\c$\Program Files\Hewlett-Packard\HPCA\Agent\Lib\patch_stats.html" -ErrorAction SilentlyContinue
+            Invoke-Item "\\$ComputerName\c$\Program Files (x86)\Hewlett-Packard\HPCA\Agent\Lib\patch_stats.html"
+            Invoke-Item "\\$ComputerName\c$\Program Files\Hewlett-Packard\HPCA\Agent\Lib\patch_stats.html" -ErrorAction SilentlyContinue
         }
     }
     else
     {
-      write-host "$cn is offline"
+      write-host "$ComputerName is offline"
     }
 }
