@@ -4546,3 +4546,297 @@ B.  Azure Traffic ManagE.
 C.  Azure Application GatewA.
 D.  Azure Network WatchE.
 Explanation:  Answer – C
+
+Question
+Marked as review IncorreC.  Domain :Implement Authentication and Secure Data
+A company is planning on deploying several resources using Azure Resource Manager Templates. Some of the templates need to reference secrets stored in Azure Key vault.
+You have to ensure the following
+The templates can access the secrets stored in Azure Key vault during deployment
+Users who are performing the deployment should not have access to the secrets in the key vault
+Which of the following would you use for the requirement?
+"Ensure templates can access the secrets stored in Azure Key vault during deployment"
+A.  Access policy for the Key vault
+B.  Advanced access policy for the key vault
+C.  Role Based access control
+D.  Azure Policies
+Explanation:
+Answer – B
+This is mentioned in the Azure documentation wherein you need to make use of Advanced access policies
+Since this is clearly mentioned in the documentation, all other options are incorreC.
+For more information on integrating key vault with Azure resource manager, please visit the below URL
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault
+
+Question
+Marked as review IncorreC.  Domain :Implement Authentication and Secure Data
+A company is planning on deploying several resources using Azure Resource Manager Templates. Some of the templates need to reference secrets stored in Azure Key vault.
+You have to ensure the following
+The templates can access the secrets stored in Azure Key vault during deployment
+Users who are performing the deployment should not have access to the secrets in the key vault
+Which of the following would you use for the requirement?
+"Users who are performing the deployment should not have access to the secrets in the key vault"
+A.  Access policy for the Key vault
+B.  Advanced access policy for the key vault
+C.  Role Based access control
+D.  Azure Policies
+Explanation:
+Answer – A
+This is clearly given in the Microsoft documentation where we provide access to the secrets themselves using Access policies
+Option B is incorrect since the documentation mentions the correct place is Access policies
+Option C is incorrect since this is used to control access to the service itself and to the data stored in the key vault.
+Option D is incorrect since this is used as a governance aspeC.
+For more information on securing the key vault, please visit the below URL
+https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault
+
+Question
+Marked as review IncorreC.  Domain :Design a Business Continuity Strategy
+A company has an Azure subscription. They have created a couple of Azure machines that use unmanaged, standard hard disk drives (HDD).
+A recovery strategy needs to be in place for the Virtual Machines. Below are the key requirements
+Recovery time objective of up to 7 days
+Failover to another region if the primary region goes down
+Solution must minimize costs
+Which of the following would you implement for this requirement?
+A.  Store disks using Standard_LRS replication. If a disaster occurs, manually create the virtual machines by using Azure Resource manager templates.
+B.  Store disks using Standard_LRS replication. Use Site Recovery to initiate a failover if requireD.
+C.  Store disks using Standard_GRS replication. If a disaster occurs, manually create the virtual machines by using Azure Resource manager templates.
+D.  Store disks using Standard_GRS replication. Use Site Recovery to initiate a failover if requireD.
+Explanation:
+Answer – C
+Here the most cost-effective solution would be just to replicate the disks using the inbuilt replication of Geo redundant storage
+The Microsoft documentation mentions the following on Geo redundant storage replication
+Option A is incorrect since this would not allow for failover if the primary region goes down
+Options B and D are not cost efficient. Using Azure Site Recovery would incur more expenses rather than just replicating the storage
+For more information on geo redundant storage, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs
+
+Question
+Marked as review Unattempted
+Domain :Determine Workload Requirements
+A consulting company is developing an application that needs to be hosted on Azure. The application will need a data store for storing patient records. You have the following key requirements
+You should be able to configure a retention period for the recorD.  You should be able to archive data
+Archived data must not be modified or deleteD.  Which of the following would you consider for storage of the records?
+A.  Azure Tables
+B.  Azure BloB.
+C.  Azure Queues
+D.  Azure Files
+Explanation:
+Answer – B
+Azure storage offers different storage tiers, which allows you to store blob object data in the most cost-effective manner.
+Below is what the Microsoft documentation mentions on the features of the Cool Tier
+Remember that you can’t opt for the Archive Tier for storage, since with the Archive tier you can’t even read data. This is given in the Microsoft documentation
+Option A is incorrect.
+Storage type
+Azure Table Storage ServiC.  Azure Queue Storage ServiC.  Azure File Storage ServiC.
+Option C is incorrect since this is used a messaging system
+Option D is incorrect since this is mainly used for sharable file shares
+For more information on BLOB storage tiers, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers
+
+Question
+Marked as review IncorreC.  Domain :Implement Workloads and Security
+A consulting company is developing a web application that will be used to perform image analysis and processing for identifying people. The images are stored in Azure storage. The analysis requires GPU-intensive calculations and performing the subsequent analysis of the large three-dimensional images in Azure storage.
+You have to adhere to the additional requirements
+Provisioning of the underlying Infrastructure for performing rendering and calculations needs to happen automatically.
+The processing service should not affect the underlying web application
+Which of the following would you use for the following requirement?
+"Perform rendering of three-dimensional images"
+A.  Azure BatC.
+B.  Azure Web JoB.
+C.  Azure Logic Apps
+D.  Azure Functions
+Explanation:
+Answer – A
+The Azure Batch service is perfect for this requirement. The Microsoft documentation mentions the following
+Option B is incorrect since here you need to ensure that the jobs will not interfere with the underlying Web Application
+Option C is incorrect since this service is used for workflow orchestration
+Option D is incorrect since for long computations and intensive parallel processing consider using the Azure Batch serviC.
+For more information on Azure Batch Service, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview
+
+Question
+Marked as review IncorreC.  Domain :Implement Workloads and Security
+A consulting company is developing a web application that will be used to perform image analysis and processing for identifying people. The images are stored in Azure storage. The analysis requires GPU-intensive calculations and performing the subsequent analysis of the large three-dimensional images in Azure storage.
+You have to adhere to the additional requirements
+Provisioning of the underlying Infrastructure for performing rendering and calculations needs to happen automatically.
+The processing service should not affect the underlying web application
+Which of the following would you use for the following requirement?
+"Use parallel processes to complete calculations"
+A.  Azure BatC.
+B.  Azure Web JoB.
+C.  Azure Logic Apps
+D.  Azure Functions
+Explanation:
+Answer – A
+The Azure Batch service is perfect for this requirement. The Microsoft documentation mentions the following
+Option B is incorrect since here you need to ensure that the jobs will not interfere with the underlying Web Application
+Option C is incorrect since this service is used for workflow orchestration
+Option D is incorrect since for long computations and intensive parallel processing consider using the Azure Batch serviC.
+For more information on Azure Batch Service, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview
+
+Question
+Marked as review CorreC.  Domain :Determine Workload Requirements
+A company has a Hyper-V cluster. The cluster has a set of Hyper-V hosts running Windows 2016 Data center. The company has licensed the hosts using an Microsoft Enterprise agreement-Software Assurance.
+They want to migrate the Virtual Machines hosted on the hosts to Azure. The workloads on the machine have predictable consumption patterns.
+You need to recommend a cost-effective approach for migrating the Virtual Machines onto Azure. Which of the following would you consider? Choose 2 answers from the options given below
+A.  Use the Azure Migrate tool
+B.  Consider using Azure reserved Virtual Machines
+C.  Consider activating Azure Hybrid Benefit for the Azure virtual machines
+D.  Use a Virtual Machine scale set
+Explanation:
+Answer - B and C
+The Microsoft documentation mentions the following on how you can save costs when looking at spinning up Virtual Machines in Azure.
+Option A is incorrect since this is a tool that can be used specifically for VMWare VM’s
+Option D is incorrect since there is no mention on the need for scaling in the requirement
+For more information on Reserved Instances and hybrid benefits, please go ahead and visit the below URL
+https://azure.microsoft.com/en-us/pricing/reserved-vm-instances/
+https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#services
+
+Question
+Marked as review IncorreC.  Domain :Design a Business Continuity Strategy
+A company is designing an application that will be deployed to the Azure Web App service. The Web App will be deployed to the North and West Europe region. The architecture must follow the below requirements
+Users must always be directed to the Web app running in the North Europe region
+If there is a region failure, then users must still be able to access the web application
+The deployment costs must be minimized
+Which of the following would you use for routing purposes?
+A.  Azure Traffic Manager
+B.  Azure Application GatewA.
+C.  Azure Load Balancer
+D.  Azure Virtual Machines
+Explanation:
+Answer - A
+You would use the Azure Traffic Manager service for this requirement. The Microsoft documentation mentions the following
+Options B and C are incorrect since these routing mechanisms only route within a particular region and not across regions
+Option D is incorrect since virtual machines alone would not be used for routing traffic
+For more information on the traffic manager, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview
+
+Question
+Marked as review IncorreC.  Domain :Design a Business Continuity Strategy
+A company is designing an application that will be deployed to the Azure Web App service. The Web App will be deployed to the North and West Europe region. The architecture must follow the below requirements
+Users must always be directed to the Web app running in the North Europe region
+If there is a region failure, then users must still be able to access the web application
+The deployment costs must be minimized
+Which of the following routing configurations would you use?
+A.  Cookie based session affinity
+B.  Performance traffic routing
+C.  Weighted traffic routing
+D.  Priority traffic routing
+Explanation:
+Answer – D
+The Microsoft documentation provides the use case and purpose of the priority traffic routing method to support this
+Since this is clearly mentioned in the Microsoft documentation, all other options are incorreC.
+For more information on the traffic manager routing methods, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methoD.
+
+Question
+Marked as review IncorreC.  Domain :Determine Workload Requirements
+You have a set of Fsv2 virtual machines. Each machine has 2 virtual network adapters. There is a requirement to increase the network performance for the applications hosted on the Virtual Machine. You have the following constraints
+You cannot increase the size of the instanC.  The solution must minimize costs.
+Which of the following can be implemented to achieve this requirement?
+A.  Enable SR-IOV
+B.  Enable RDMA over InfiniBanD.
+C.  Install an additional network adapter.
+D.  Configure NIC teaming.
+Explanation:
+Answer – A
+This is given in the Microsoft documentation. You have to enable Accelerated Networking
+Option B is incorrect since this is used more from a memory perspective
+Options C and D are incorrect since you will still have the limitation on the networking aspect based on the instance size.
+For more information on enabling accelerated networking on a machine, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli
+
+Question
+Marked as review IncorreC.  Domain :Determine Workload Requirements
+A company needs to migrate around 100 VMWare VM's to Azure. The Virtual Machines are of different sizes and have varying workloads.
+You have to provide a recommendation on whether the VM's can be migrated to Azure. And if they can what is the recommended size for the Virtual Machines that need to be setup in Azure.
+Which of the following would you use for the recommendation?
+A.  Azure Cost Management
+B.  Azure Migrate
+C.  Azure pricing calculator
+D.  Azure Advisor recommendations
+Explanation:
+Answer – B
+The Azure Migrate service is the perfect service for this. The Microsoft documentation mentions the following
+Option A is incorrect since this will provide a cost analysis once you deploy resources to Azure
+Option C is incorrect since this will give an indicative pricing if you already know the demand that needs to be hosted in Azure
+Option D is incorrect since this will recommendations on resources that are already deployed to Azure
+For more information on Azure Migrate, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/migrate/migrate-overview
+
+Question
+Marked as review IncorreC.  Domain :Determine Workload Requirements
+A company needs to create a storage account as shown below
+The storage account must meet the following requirements
+Ensure that the documents can be stored in the storage account
+The documents must be made accessible via drive mappings from Azure virtual machines that run Windows Server 2016.
+Provide the highest possible redundancy for the documents.
+Minimize storage access costs.
+Which of the following would you choose for the performance of the Storage account?
+A.  Standard
+B.  Premium
+C.  General Purpose
+D.  BLOB
+Explanation:
+Answer – A
+You have to use the Standard performance tier. The premium tier only allows storage of Page BLOB’s.
+In the below diagram you can see that if we choose Premium as the Performance option, we will have no option for files shares. And that is the main requirement. File shares allow to have drive mappings from Azure Virtual Machines.
+Since this is clear from the implementation, all other options are incorreC.
+For more information on Azure storage accounts, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
+
+Question
+Marked as review IncorreC.  Domain :Determine Workload Requirements
+A company needs to create a storage account as shown below
+The storage account must meet the following requirements
+Ensure that the documents can be stored in the storage account
+The documents must be made accessible via drive mappings from Azure virtual machines that run Windows Server 2016.
+Provide the highest possible redundancy for the documents.
+Minimize storage access costs.
+Which of the following would you choose for the Account kinD.
+A.  General Purpose v1
+B.  General Purpose v2
+C.  BLOBStorage
+D.  ObjectStorage
+Answer – B
+If you need to use a storage account to host file shares, the consider General Purpose v2 which has support for Page BLOB’s. Microsoft recommends this storage account kind which has more features than General Purpose v1.
+In the Azure portal, you would configure this as shown below
+Since this is clear from the implementation, all other options are incorreC.
+For more information on Azure storage accounts, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview
+
+Question
+Marked as review CorreC.  Domain :Determine Workload Requirements
+A company needs to create a storage account as shown below
+The storage account must meet the following requirements
+Ensure that the documents can be stored in the storage account
+The documents must be made accessible via drive mappings from Azure virtual machines that run Windows Server 2016.
+Provide the highest possible redundancy for the documents.
+Minimize storage access costs.
+Which of the following would you choose for the replication?
+A.  Locally redundant storage (LRS)
+B.  Zone-redundant storage (ZRS)
+C.  Geo-redundant storage (GRS)
+D.  Read-access geo-redundant storage (RA-GRS)
+Explanation:
+Correct answer: C
+Requirement
+We need to deploy either Blob or file storage and minimize the cost
+GRS and RA-GRS is better than LRS and ZRS
+So now our challenge is to select one between RA-GRS and GRS
+RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
+Regarding PriC.  Reference URL:
+https://docs.microsoft.com/en-us/azure/storage/common/storage-redundanC.
+
+Question
+Marked as review CorreC.  Domain :Develop for the Cloud
+A company wants to run a script using Azure Web jobs. It needs to be ensured that the web job runs every 15 minutes. Which of the following can be carried out to ensure this?
+A.  Create an automation service to run the Web Job
+B.  Create a cron expression as "0 */15 * * * *" in the Web.config file
+C.  Create a cron expression as "0 */15 * * * *" and mention it in the properties of the Web Job
+D.  Create a cron expression as "0 */15 * * * *" and mention it in the properties of the Web App
+Explanation:
+Answer - C
+The Microsoft documentation clearly mentions where the cron expression needs to be placed
+Since this is clearly mentioned, all other options are invalid
+For more information on creating web jobs, please go ahead and visit the below URL
+https://docs.microsoft.com/en-us/azure/app-service/webjobs-create
