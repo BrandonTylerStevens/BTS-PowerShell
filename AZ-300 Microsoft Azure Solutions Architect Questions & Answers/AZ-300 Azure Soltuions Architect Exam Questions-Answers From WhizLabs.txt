@@ -1,4 +1,3 @@
-
 Question
 Domain :Create and Deploy Apps
 A company’s development team is currently developing a Docker/Go based application. The application needs to be deployed to the Azure Web App service using containers on the Linux platform. Currently there are no resource groups in place in the company’s Azure account that supports the Linux platform. You must advise on the necessary and minimum number of steps to provide the ability to host the application in the company’s Azure account. Which of the following Azure CLI commands would you recommend implementing for this requirement? Choose 3 answers from the options given below
