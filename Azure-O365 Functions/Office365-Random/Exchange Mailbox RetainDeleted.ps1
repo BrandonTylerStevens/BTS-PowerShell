@@ -1,0 +1,1 @@
+﻿Get-Mailbox -ResultSize Unlimited | select name, retaindeleteditemsfor
